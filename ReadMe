@@ -1,0 +1,50 @@
+1 什么是MVC
+
+MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式。
+
+MVC把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。
+
+PHP中MVC模式也称Web MVC，从上世纪70年代进化而来。
+
+MVC的目的是实现一种动态的程序设计，便于后续对程序的修改和扩展简化，并且使程序某一部分的重复利用成为可能。
+
+除此之外，此模式通过对复杂度的简化，使程序结构更加直观。
+
+MVC各部分的职能：
+模型Model – 管理大部分的业务逻辑和所有的数据库逻辑。模型提供了连接和操作数据库的抽象层。控制器Controller - 负责响应用户请求、准备数据，以及决定如何展示数据。视图View – 负责渲染数据，通过HTML方式呈现给用户。
+
+
+一个典型的Web MVC流程：
+Controller截获用户发出的请求；Controller调用Model完成状态的读写操作；Controller把数据传递给View；View渲染最终结果并呈献给用户。
+2 为什么要自己开发MVC框架
+
+网络上有大量优秀的MVC框架可供使用，本教程并不是为了开发一个全面的、终极的MVC框架解决方案。
+
+我们将它看作是一个很好的从内部学习PHP的机会。
+
+在此过程中，你将学习面向对象编程和MVC设计模式，并学习到开发中的一些注意事项。
+
+更重要的是，通过自制MVC框架，每个人都可以完全控制自己的框架，将你的想法融入到你开发的框架中。
+
+虽然不一定是最好的，但是你可以按照自己的方式开发各种功能。
+
+3 开始开发自己的MVC框架
+
+3.1 目录准备
+
+在开始开发前，让我们先来把项目建立好。
+
+假设我们建立的项目为 project，MVC的框架命名为 fastphp，那么接下来，第一步要把目录结构设置好。
+project  WEB部署目录├─application           应用目录│  ├─controllers        控制器目录│  ├─models             模块目录│  ├─views              视图目录├─config                配置文件目录├─fastphp               框架核心目录├─static                静态文件目录├─index.php             入口文件
+
+然后把Nginx或者Apache的站点根目录配置到project目录。
+
+3.2 代码规范
+
+在目录设置好以后，我们接下来规定代码的规范：
+MySQL的表名需小写或小写加下划线，如：item，car_orders。模块名（Models）需用大驼峰命名法，即首字母大写，并在名称后添加Model，如：ItemModel，CarModel。控制器（Controllers）需用大驼峰命名法，即首字母大写，并在名称后添加Controller，如：ItemController，CarController。方法名（Action）需用小驼峰命名法，即首字母小写，如：index，indexPost。视图（Views）部署结构为控制器名/行为名，如：item/view.php，car/buy.php。
+上述规则是为了程序能更好地相互调用。
+
+---------------------
+
+本文来自 没刺的仙人掌 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/chengshaolei2012/article/details/72675124?utm_source=copy 
